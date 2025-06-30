@@ -1,5 +1,5 @@
 import { forwardRef, useImperativeHandle, useState } from "react";
-import { Box, Button, Grid, TextField, Typography } from "@mui/material";
+import { Box, Button, FormControl, Grid, InputLabel, MenuItem, Select, TextField, Typography } from "@mui/material";
 import { baseURL } from "../../config/apiConfig";
 
 type PatientData = {
@@ -106,7 +106,31 @@ type PatientData = {
                 <TextField label="Clinic" name="clinic" value={patientData.clinic} onChange={handleInputChange} fullWidth />
                 </Grid>
                 <Grid size={8}>
-                <TextField label="Disease" name="disease" value={patientData.disease} onChange={handleInputChange} fullWidth />
+                <FormControl fullWidth >
+                    <InputLabel id="select-disease" >Disease</InputLabel>
+                        <Select
+                            labelId="select-disease"
+                            id="demo-simple-select"
+                            value={patientData.disease}
+                            label="Disease"
+                            name="disease" 
+                            onChange={handleInputChange}
+                            sx={{ textAlign: 'left' }}
+                        >
+                            <MenuItem value={"Renal"}>Renal</MenuItem>
+                            <MenuItem value={"Gastrointestinal"}>Gastrointestinal</MenuItem>
+                            <MenuItem value={"Cancer"}>Cancer</MenuItem>
+                            <MenuItem value={"Dental"}>Dental</MenuItem>
+                            <MenuItem value={"Obesity - Adult"}>Obesity - Adult</MenuItem>
+                            <MenuItem value={"Obesity - Paediatrics"}>Obesity - Paediatrics</MenuItem>
+                            <MenuItem value={"Psychiatry"}>Psychiatry</MenuItem>
+                            <MenuItem value={"Undernutrition - Adults"}>Undernutrition - Adults</MenuItem>
+                            <MenuItem value={"Undernutrition - Paediatrics"}>Undernutrition - Paediatrics</MenuItem>
+                            <MenuItem value={"Pregnancy - Diabetes"}>Pregnancy - Diabetes</MenuItem>
+                            <MenuItem value={"Pregnancy - Low BMI"}>Pregnancy - Low BMI</MenuItem>
+                            <MenuItem value={"Other"}>Other</MenuItem>
+                        </Select>
+                        </FormControl>
                 </Grid>
                 <Grid size={8}>
                 <TextField label="Height" name="height_cm" value={patientData.height_cm} onChange={handleInputChange} fullWidth />
