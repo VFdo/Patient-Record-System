@@ -47,8 +47,8 @@ type Patient = {
         patientDataRef.current?.handleSearch(sn);
         Promise.all([
             fetch(`${baseURL}/getPatientBySN/${sn}`),
-            // fetch(`${baseURL}/getPatientBySN/${sn}`),
-            fetch(`${phnURL}${sn}`)
+            fetch(`${baseURL}/getPatientBySN/${sn}`),
+            // fetch(`${phnURL}${sn}`)
           ])
             .then(async ([res1, res2]) => {
               if(res1.ok){
@@ -213,6 +213,7 @@ type Patient = {
                   console.log(sn);
                   handleSubmit(patient);
                 }}
+                sx={{ width: 300,margin:2 }}
               >
                 Add New Patient
               </Button>

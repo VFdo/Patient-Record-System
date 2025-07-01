@@ -39,12 +39,12 @@ function AllVisits({ serialNo }: {serialNo:string}) {
     }, [serialNo]);
 
     return (
-      <Box sx={{ width: '100%', overflowX: 'auto' }}>
+      <Box sx={{ width: '100%', overflowX: 'auto'}}>
         <TableContainer component={Paper} sx={{ overflowX: 'auto' }}>
           <Table aria-label="simple table">
             <TableHead>
               <TableRow>
-              <TableCell>Visit ID</TableCell>
+              <TableCell>Visit #</TableCell>
                 <TableCell align="right">Date</TableCell>
                 <TableCell align="right">Weight&nbsp;(kg)</TableCell>
                 <TableCell align="right">Weight Circumference&nbsp;(cm)</TableCell>
@@ -55,12 +55,12 @@ function AllVisits({ serialNo }: {serialNo:string}) {
               </TableRow>
             </TableHead>
             <TableBody>
-              {visits.map((visit) => (
+              {visits.map((visit, index) => (
                 <TableRow
                   key={visit.refId}
                   sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                 >
-                  <TableCell >{visit.refId}</TableCell>
+                  <TableCell >{index + 1}</TableCell>
                   <TableCell component="th" scope="row" align="right">
                     {visit.date.toString()}
                   </TableCell>

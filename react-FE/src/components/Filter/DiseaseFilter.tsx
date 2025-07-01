@@ -61,10 +61,10 @@ function DiseaseFilter () {
       
 
     return (
-      <Container maxWidth="md">
-        <CssBaseline />
-        <Box sx={{ my: 4 }}>
-          <AppBar position="static">
+      <Box sx={{ width: '100%', minHeight: '100vh', bgcolor: '#f9f9f9' }}>
+    <CssBaseline />
+
+          <AppBar position="fixed">
             <Toolbar>
               <Typography variant="h6" sx={{ flexGrow: 1 }}>
                 Filter by Disease
@@ -72,7 +72,9 @@ function DiseaseFilter () {
             </Toolbar>
           </AppBar>
   
-          <Box sx={{ my: 3 }}>
+          <Box sx={{ pt: 10, px: 4 }}>
+            
+          <Box sx={{ mb: 3 }}>
             <FormControl fullWidth>
               <InputLabel>Select Disease</InputLabel>
               <Select
@@ -121,7 +123,7 @@ function DiseaseFilter () {
             </Table>
           </TableContainer>
         </Box>
-      </Container>
+      </Box>
     );
   };
 

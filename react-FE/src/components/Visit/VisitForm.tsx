@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Box, Button, Grid, TextField } from "@mui/material";
+import { Box, Button, Card, CardContent, Grid, TextField } from "@mui/material";
 import { baseURL } from "../../config/apiConfig";
 
 type Visit = {
@@ -74,9 +74,16 @@ type VisitFormProps = {
   
 
   return(
-    <Box>
+    <Card>
+      <CardContent>
+    <Box sx={{ display: 'flex', justifyContent: 'center' }}>
         <>
-          <Grid container spacing={2}>
+          <Grid 
+          container
+          spacing={2}
+          justifyContent="center"
+          alignItems="center"
+          maxWidth="md">
                 <Grid size={8}>
                     <TextField label="Date" name="date" type="date" value={visit.date} onChange={handleInputChange} fullWidth focused />
                 </Grid>
@@ -109,6 +116,8 @@ type VisitFormProps = {
             
         </>
     </Box>
+    </CardContent>
+    </Card>
       
   );
   }

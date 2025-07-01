@@ -28,10 +28,9 @@ function MainPage() {
   };
 
   return (
-  <Container maxWidth="lg">
+    <Box sx={{ width: '100%', minHeight: '100vh', bgcolor: '#f9f9f9' }}>
   <CssBaseline />
-  <Box sx={{ my: 4 }}>
-    <AppBar position="static">
+    <AppBar position="fixed">
       <Toolbar>
         <Typography variant="h6" sx={{ flexGrow: 1 }}>
           Patient Record System
@@ -40,7 +39,8 @@ function MainPage() {
         <Button color='secondary' onClick={() => navigate("/filter")}>Filter Page</Button>
       </Toolbar>
     </AppBar>
-    <div>
+
+    <Box sx={{ pt: 10, px: 4 }}>
     <Tabs value={tabValue} onChange={handleTabChange} centered>
       <Tab label="Patient Info" />
       <Tab label={`Visit Form`} />
@@ -56,9 +56,8 @@ function MainPage() {
     <TabPanel value={tabValue} index={2}>
       <AllVisits serialNo={patientSn} />
     </TabPanel>
-    </div>
    </Box>
- </Container>
+   </Box>
   )
 }
 
