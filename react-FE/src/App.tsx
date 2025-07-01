@@ -1,11 +1,13 @@
 import './App.css'
 import PatientForm from './components/Patient/PatientForm'
 import AllVisits from './components/Visit/Visits'
-import { AppBar, Box, Button, Container, CssBaseline, Tab, Tabs, Toolbar, Typography } from '@mui/material'
+import { AppBar, Box, Button, CssBaseline, Tab, Tabs, Toolbar, Typography } from '@mui/material'
 import React, { useState } from 'react'
 import VisitForm from './components/Visit/VisitForm'
-import { BrowserRouter, Route, Router, Routes, useNavigate } from 'react-router-dom'
+import { BrowserRouter, Route, Routes, useNavigate } from 'react-router-dom'
 import DiseaseFilter from './components/Filter/DiseaseFilter'
+import FilterAltIcon from '@mui/icons-material/FilterAlt';
+
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -35,8 +37,29 @@ function MainPage() {
         <Typography variant="h6" sx={{ flexGrow: 1 }}>
           Patient Record System
         </Typography>
-        {/* <Button color='secondary'>Filter Page</Button> */}
-        <Button color='secondary' onClick={() => navigate("/filter")}>Filter Page</Button>
+        {/* <Button color='secondary' onClick={() => navigate("/filter")}>Filter Page</Button> */}
+        <Button
+          variant="contained"
+          color="secondary"
+          startIcon={<FilterAltIcon />}
+          onClick={() => navigate("/filter")}
+          sx={{
+            backgroundColor: '#E5E4E2',
+            color: '#000', 
+            borderRadius: 2,
+            textTransform: 'none',
+            fontWeight: 500,
+            px: 2,
+            py: 1,
+            boxShadow: 1,
+            '&:hover': {
+              backgroundColor: '#FFFFFF',
+              boxShadow: 3
+          }
+        }}
+        >
+  Filter Page
+</Button>
       </Toolbar>
     </AppBar>
 
@@ -64,12 +87,10 @@ function MainPage() {
 function App() {
   return (
     <BrowserRouter>
-    {/* <Router > */}
       <Routes>
         <Route path="/" element={<MainPage />} />
         <Route path="/filter" element={<DiseaseFilter />} />
       </Routes>
-    {/* </Router> */}
     </BrowserRouter>
   )
 }
