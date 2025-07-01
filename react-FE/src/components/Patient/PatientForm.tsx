@@ -47,8 +47,8 @@ type Patient = {
         patientDataRef.current?.handleSearch(sn);
         Promise.all([
             fetch(`${baseURL}/getPatientBySN/${sn}`),
-            fetch(`${baseURL}/getPatientBySN/${sn}`),
-            // fetch(`${phnURL}${sn}`)
+            // fetch(`${baseURL}/getPatientBySN/${sn}`), //dev
+            fetch(`${phnURL}${sn}`) //prod
           ])
             .then(async ([res1, res2]) => {
               if(res1.ok){
